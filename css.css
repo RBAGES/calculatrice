@@ -1,0 +1,196 @@
+:root{
+    --bg-main:hsl(222, 26%, 31%);
+    --bg-toggle:hsl(223, 31%, 20%);
+    --bg-screen:hsl(224, 36%, 15%);
+
+    --bg-keyBlue:hsl(225, 21%, 49%);
+    --shadow-keyBlue:hsl(224, 28%, 35%);
+
+    --bg-keyRed:hsl(6, 63%, 50%);
+    --shadow-keyRed:hsl(6, 70%, 34%);
+
+    --bg-key:hsl(30, 25%, 89%);
+    --shadow-key:hsl(28, 16%, 65%);
+
+    --text-white : white;
+    --text-gray:hsl(221, 14%, 31%);
+
+    --text-2 : white;
+    --text-equal : white;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+}
+
+body{
+    background-color: var(--bg-main);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main{
+    width: 570px;
+    display: flex;
+    flex-direction: column;
+}
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-white);
+}
+
+.theme{
+    display: flex;
+    align-items: end;
+}
+
+.theme>p{
+    font-size: 0.7em;
+    margin-right: 15px;
+    margin-bottom: 3px;
+}
+
+.themeNum{
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.7em;
+}
+
+.screen{
+    background-color: var(--bg-screen);
+    margin-top: 25px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: var(--text-white);
+    border-radius: 10px;
+    font-size: 2.5em;
+    overflow: hidden;
+    position: relative;
+}
+
+.input{
+    margin-right: 30px;
+}
+
+
+.slider{
+    height: 20px;
+    width: 58px;
+    background-color: var(--bg-toggle);
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.slider-dot{
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    top: 3px;
+    border-radius: 50%;
+    background-color: var(--bg-keyRed);
+}
+.move01{
+    animation: move0to1 0.5s forwards;
+}
+.move12{
+    animation: move1to2 0.5s forwards;
+}
+.move20{
+    animation: move2to0 0.5s forwards;
+}
+
+.calcul{
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 0.3em;
+    color: var(--text-white);
+}
+
+
+@keyframes move0to1 {
+    0%{left:3px}
+    100%{left:22px}
+}
+@keyframes move1to2 {
+    0%{left:22px}
+    100%{left:41px}
+}
+@keyframes move2to0 {
+    0%{left:41px}
+    100%{left:3px}
+}
+
+
+.keyboard{
+    margin-top: 25px;
+    padding: 40px ;
+    border-radius: 10px;
+    height: 500px;
+    background-color: var(--bg-toggle);
+    display: grid;
+    grid-template-columns: repeat(4,1fr)/repeat(5,1fr);
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(0, 1fr);
+    gap: 30px;
+}
+
+.reset,.equal,.key{
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+.reset:active,.equal:active,.key:active{
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0.6;
+}
+
+
+
+.key{
+    background-color: var(--bg-key);
+    color: var(--text-gray);
+    font-size: 2em;
+    box-shadow: 0px -5px 0 0px var(--shadow-key) inset;
+}
+
+.spec{
+    background-color: var(--bg-keyBlue);
+    color: var(--text-2);
+    font-size: 1.3em;
+    box-shadow: 0px -5px 0 0px var(--shadow-keyBlue) inset;
+}
+
+.reset{
+    grid-area: 5/1/span 1/span 2 ;
+    background-color: var(--bg-keyBlue);
+    color: var(--text-2);
+}
+.equal{
+    grid-area: 5/3/span 1/span 2 ;
+    background-color: var(--bg-keyRed);
+    color: var(--text-equal);
+    font-size: 1.3em ;
+    box-shadow: 0px -5px 0 0px var(--shadow-keyRed) inset;
+}
